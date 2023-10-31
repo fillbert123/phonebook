@@ -5,7 +5,8 @@ import {
   ApolloProvider
 } from '@apollo/client'
 import ContactList from './components/ContactList';
-import {mainComponent} from "./styles/style"
+import {mainComponent, heading} from "./styles/style"
+import SearchBar from './components/SearchBar';
 
 const client = new ApolloClient ({
   cache: new InMemoryCache,
@@ -16,7 +17,11 @@ const App: React.FC = () => {
   return (
     <ApolloProvider client={client}>
       <div className={mainComponent}>
-        <ContactList />
+      <SearchBar />
+      <div className={heading}>Favorites</div>
+      <ContactList />
+      <div className={heading}>Contacts</div>
+      <ContactList />
       </div>
     </ApolloProvider>
   );
