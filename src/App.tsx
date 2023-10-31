@@ -1,22 +1,21 @@
 import React from 'react';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider
+} from '@apollo/client'
+import ContactList from './components/ContactList';
+
+const client = new ApolloClient ({
+  cache: new InMemoryCache,
+  uri: 'https://wpe-hiring.tokopedia.net/graphql'
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <ContactList />
+    </ApolloProvider>
   );
 }
 
