@@ -1,8 +1,12 @@
 import {css} from '@emotion/css'
 
+export const mainComponent = css`
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+`
+
 export const loadingScreen = css`
   width: 100vw;
-  height: 100vh;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

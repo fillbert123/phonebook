@@ -5,16 +5,19 @@ import {
   ApolloProvider
 } from '@apollo/client'
 import ContactList from './components/ContactList';
+import {mainComponent} from "./styles/style"
 
 const client = new ApolloClient ({
   cache: new InMemoryCache,
   uri: 'https://wpe-hiring.tokopedia.net/graphql'
 })
 
-function App() {
+const App: React.FC = () => {
   return (
     <ApolloProvider client={client}>
-      <ContactList />
+      <div className={mainComponent}>
+        <ContactList />
+      </div>
     </ApolloProvider>
   );
 }

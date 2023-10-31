@@ -2,7 +2,7 @@ import React from 'react';
 import {useQuery} from '@apollo/client'
 import {GET_CONTACT_LIST} from '../graphql/queries'
 import ContactCard from './ContactCard';
-import {loadingScreen} from "../styles/style"
+import LoadingScreen from './LoadingScreen';
 
 interface Contact {
   id: number,
@@ -28,7 +28,7 @@ const ContactList: React.FC = () => {
         //   </div>
         // ))
         loading
-        ? <div className={loadingScreen}>Loading...</div>
+        ? <LoadingScreen />
         : data.contact.map((contact: Contact) => (
             <div key={contact.id.toString()}>
               <ContactCard contactInfo={contact}/>
