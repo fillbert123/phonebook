@@ -1,5 +1,5 @@
 import React from "react";
-import { addContactForm } from "../styles/style";
+import { addContactForm, userInput, actionButton, modalBottom } from "../styles/style";
 
 interface AddContactFormProps {
   hideForm: () => void;
@@ -11,14 +11,14 @@ const AddContactForm = ({hideForm}: AddContactFormProps) => {
   }
 
   return (
-    <div className={addContactForm}>
+    <div className={[addContactForm, modalBottom].join(' ')}>
       <div>Add contact</div>
-      <input type="text" name="" id="" placeholder="First name"/>
-      <input type="text" name="" id="" placeholder="Last name"/>
-      <input type="number" name="" id="" placeholder="Phone number"/>
+      <input type="text" className={userInput} placeholder="First name"/>
+      <input type="text" className={userInput} placeholder="Last name"/>
+      <input type="text" className={userInput} placeholder="Phone number"/>
       <div>
-        <div>Add</div>
-        <div onClick={handleHideForm}>Cancel</div>
+        <div className={actionButton}>Add</div>
+        <div className={actionButton} onClick={handleHideForm}>Cancel</div>
       </div>
     </div>
   )

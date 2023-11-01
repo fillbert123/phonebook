@@ -9,16 +9,21 @@ interface ContactCardProps {
     last_name: string,
     created_at: string,
     phones: Phone[]
-  }
+  },
+  showProfile: (data: number) => void;
 }
 
 interface Phone {
   number: number
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({contactInfo}) => {
+const ContactCard: React.FC<ContactCardProps> = ({contactInfo, showProfile}) => {
+  const handleShowProfile = () => {
+    showProfile(contactInfo.id);
+  }
+
   return (
-    <div className={contactCard}>
+    <div className={contactCard} onClick={handleShowProfile}>
       <div>
         <div>
           <div>{contactInfo.first_name}</div>

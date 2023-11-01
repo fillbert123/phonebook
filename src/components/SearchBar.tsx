@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import {searchBar} from "../styles/style"
+import {searchBar, userInput} from "../styles/style"
 import magnifyingGlass from "../assets/magnifyingglass.svg"
 import xmark from "../assets/xmark.circle.fill.svg"
 import SearchList from "./SearchList";
@@ -21,6 +21,7 @@ const SearchBar: React.FC = () => {
         <div>
           <img src={magnifyingGlass} alt="" />
           <input 
+            className={userInput}
             type="text" 
             placeholder="First name, last name, or phone number"
             value={search}

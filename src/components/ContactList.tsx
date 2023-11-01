@@ -16,7 +16,11 @@ interface Phone {
   number: number
 }
 
-const ContactList: React.FC = () => {
+interface ContactListProps {
+  showProfile: (data: number) => void;
+}
+
+const ContactList = ({showProfile}: ContactListProps) => {
   const {loading, data} = useQuery(GET_CONTACT_LIST);
 
   return (
@@ -26,7 +30,7 @@ const ContactList: React.FC = () => {
         ? <LoadingScreen />
         : data.contact.map((contact: Contact) => (
             <div key={contact.id.toString()}>
-              <ContactCard contactInfo={contact}/>
+              <ContactCard contactInfo={contact} showProfile={showProfile} />
             </div>
           ))
       }

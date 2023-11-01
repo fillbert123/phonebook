@@ -9,6 +9,7 @@ import {heading, searchSection, listSection, addContact} from "./styles/style"
 import SearchBar from './components/SearchBar';
 import addContactPlus from "./assets/person.crop.circle.fill.badge.plus.svg"
 import AddContactForm from './components/AddContactForm';
+import ProfileCard from './components/ProfileCard';
 
 const client = new ApolloClient ({
   cache: new InMemoryCache,
@@ -17,9 +18,15 @@ const client = new ApolloClient ({
 
 const App: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
+  const [profile, setProfile] = useState(0);
 
   const toggleForm = () => {
     setShowForm(!showForm);
+  }
+
+  const toggleProfile = (data: number) => {
+    setShowForm(false);
+    setProfile(data);
   }
 
   return (
@@ -32,7 +39,7 @@ const App: React.FC = () => {
           <div className={heading}>Favorites</div>
           {/* <ContactList /> */}
           <div className={heading}>Contacts</div>
-          <ContactList />
+          <ContactList showProfile={toggleProfile}/>
         </div>
         <div className={addContact} onClick={toggleForm}>
           <img src={addContactPlus} alt="" />
@@ -40,6 +47,9 @@ const App: React.FC = () => {
         <div>
           {
             showForm && <AddContactForm hideForm={toggleForm}/>
+          }
+          {
+            profile !== 0 && <ProfileCard profile={profile} />
           }
         </div>
       </div>

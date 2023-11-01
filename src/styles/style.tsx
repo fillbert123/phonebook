@@ -56,17 +56,7 @@ export const searchBar = css`
     flex-direction: row;
     align-items: center;
     & > input {
-      height: 38px;
       width: calc(100vw - 92px);
-      padding: 0 8px;
-      font-size: 16px;
-      border: 0 none;
-      border-radius: 8px;
-      background-color: rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(24px);
-      &:focus {
-        outline: none;
-      }
     }
     & > img {
       height: 20px;
@@ -151,7 +141,31 @@ export const contactCard = css`
   }
 `
 
-export const addContactForm = css`
+export const userInput = css`
+  height: 38px;
+  padding: 0 8px;
+  font-size: 16px;
+  border: 0 none;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  &:focus {
+    outline: none;
+  }
+`
+
+export const actionButton = css`
+  height: 38px;
+  font-size: 16px;
+  border: 0 none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`
+
+export const modalBottom = css`
   width: calc(100vw - 64px);
   padding: 16px;
   display: flex;
@@ -164,19 +178,12 @@ export const addContactForm = css`
   bottom: 16px;
   left: 16px;
   right: 16px;
+`
+
+export const addContactForm = css`
   & > input {
     width: calc(100vw - 96px);
-    height: 38px;
     margin: 8px 0;
-    padding: 0 8px;
-    font-size: 16px;
-    border: 0 none;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(24px);
-    &:focus {
-      outline: none;
-    }
   }
   & > div:first-child {
     margin: 0 0 16px 0;
@@ -191,13 +198,6 @@ export const addContactForm = css`
     justify-content: space-between;
     & > div {
       width: calc(50vw - 48px);
-      height: 38px;
-      font-size: 16px;
-      border: 0 none;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       &:first-child {
         background-color: #3478F6;
         color: #FFFFFF
@@ -207,4 +207,8 @@ export const addContactForm = css`
       }
     }
   }
+`
+
+export const addProfileCard = css`
+
 `
