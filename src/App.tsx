@@ -19,7 +19,7 @@ const App: React.FC = () => {
       <div className={mainComponent}>
       <SearchBar />
       <div className={heading}>Favorites</div>
-      <ContactList />
+      {/* <ContactList /> */}
       <div className={heading}>Contacts</div>
       <ContactList />
       </div>

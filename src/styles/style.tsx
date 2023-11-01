@@ -5,39 +5,26 @@ export const mainComponent = css`
 `
 
 export const heading = css`
+  margin: 16px 0 0 0;
   font-size: 28px;
   font-weight: bold;
 `
 
 export const loadingScreen = css`
   width: 100vw;
-  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
 export const searchBar = css`
+  z-index: 2;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  & > select {
-    height: 28px;
-    width: 128px;
-    padding: 0 8px;
-    font-size: 16px;
-    border: 0 none;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
-    appearance: none;
-    -webkit-appearance: none;
-    &:focus {
-      outline: none;
-    }
-  }
+  flex-direction: column;
+  position: relative;
   & > input {
-    height: 28px;
-    width: calc(92vw - 128px - 96px);
+    height: 38px;
+    width: calc(100vw - 32px);
     padding: 0 8px;
     font-size: 16px;
     border: 0 none;
@@ -47,16 +34,36 @@ export const searchBar = css`
       outline: none;
     }
   }
-  & > button {
-    height: 28px;
-    width: 96px;
-    padding: 0 8px;
-    font-size: 16px;
-    border: 0 none;
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.1);
+`
+
+export const searchList = css`
+  width: calc(100vw - 32px);
+  margin: 46px 0 0 0;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  > div {
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    > div:first-child {
+      display: flex;
+      flex-direction: row;
+      > div:first-child {
+        margin: 0 4px 0 0;
+        font-weight: bold;
+      }
+    }
+    > div:last-child {
+
+    }
   }
+    
 `
 
 export const contactCard = css`

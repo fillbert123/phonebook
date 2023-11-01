@@ -1,17 +1,32 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import {searchBar} from "../styles/style"
+import magnifyingGlass from "../assets/magnifyingglass.svg"
+import SearchList from "./SearchList";
 
 const SearchBar: React.FC = () => {
+  const [search, setSearch] = useState('');
+
+  const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+    // console.log(search);
+  }
+
   return (
-    <div className={searchBar}>
-      {/* <select name="" id="">
-        <option value="">First name</option>
-        <option value="">Last name</option>
-        <option value="">Phone number</option>
-      </select> */}
-      <input type="text" name="" id="" placeholder="Search for name or number"/>
-      <button>Search</button>
-    </div>
+    <>
+      <div className={searchBar}>
+        {/* <button>
+          <img src={magnifyingGlass} alt="" />
+        </button> */}
+        <input 
+          type="text" 
+          placeholder="Search for first name, last name, or number"
+          value={search}
+          onChange={handleTextChange}
+        />
+        <SearchList search={search}/>
+      </div>
+
+    </>
   )
 }
 
