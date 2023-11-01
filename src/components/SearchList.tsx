@@ -1,8 +1,8 @@
 import React from "react";
 import {useQuery} from '@apollo/client'
 import {GET_PHONE_LIST} from '../graphql/queries'
-import LoadingScreen from "./LoadingScreen";
 import {searchList} from "../styles/style"
+import chevron from "../assets/chevron.right.svg"
 
 interface Phone {
   contact: Contact,
@@ -39,7 +39,10 @@ const SearchList: React.FC<{search: string}> = ({search}) => {
                       <div>{phone.contact.first_name}</div>
                       <div>{phone.contact.last_name}</div>
                     </div>
-                    <div>{phone.number}</div>
+                    <div>
+                      <div>{phone.number}</div>
+                      <img src={chevron} alt="" />
+                    </div>
                   </div>
                 ))
             }

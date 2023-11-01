@@ -1,5 +1,6 @@
 import React from "react";
 import {contactCard} from "../styles/style"
+import chevron from "../assets/chevron.right.svg"
 
 interface ContactCardProps {
   contactInfo: {
@@ -19,8 +20,11 @@ const ContactCard: React.FC<ContactCardProps> = ({contactInfo}) => {
   return (
     <div className={contactCard}>
       <div>
-        <div>{contactInfo.first_name}</div>
-        <div>{contactInfo.last_name}</div>
+        <div>
+          <div>{contactInfo.first_name}</div>
+          <div>{contactInfo.last_name}</div>
+        </div>
+        <img src={chevron} alt="" />
       </div>
       <div>
         {

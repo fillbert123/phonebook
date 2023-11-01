@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import {searchBar} from "../styles/style"
 import magnifyingGlass from "../assets/magnifyingglass.svg"
+import xmark from "../assets/xmark.circle.fill.svg"
 import SearchList from "./SearchList";
 
 const SearchBar: React.FC = () => {
@@ -8,24 +9,27 @@ const SearchBar: React.FC = () => {
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
-    // console.log(search);
+  }
+
+  const emptySearch = () => {
+    setSearch('');
   }
 
   return (
     <>
       <div className={searchBar}>
-        {/* <button>
+        <div>
           <img src={magnifyingGlass} alt="" />
-        </button> */}
-        <input 
-          type="text" 
-          placeholder="Search for first name, last name, or number"
-          value={search}
-          onChange={handleTextChange}
-        />
+          <input 
+            type="text" 
+            placeholder="First name, last name, or phone number"
+            value={search}
+            onChange={handleTextChange}
+          />
+          <img src={xmark} alt="" onClick={emptySearch} />
+        </div>
         <SearchList search={search}/>
       </div>
-
     </>
   )
 }
