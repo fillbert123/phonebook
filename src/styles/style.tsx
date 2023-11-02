@@ -86,6 +86,7 @@ export const searchList = css`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
     > div:first-child {
       display: flex;
       flex-direction: row;
@@ -160,7 +161,19 @@ export const actionButton = css`
   cursor: pointer;
 `
 
+export const activeActionButton = css`
+  background-color: #3478F6;
+  color: #FFFFFF;
+`
+
+export const inactiveActionButton = css`
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  color: #3478F6;
+`
+
 export const modalBottom = css`
+  z-index: 2;
   width: calc(100vw - 64px);
   padding: 16px;
   display: flex;
@@ -232,7 +245,8 @@ export const contactName = css`
 `
 
 export const profileCard = css`
-  >:first-child {
+  z-index: 2;
+  > : first-child {
     width: calc(100vw - 80px);
     margin: 0 0 12px 0;
     display: flex;
@@ -242,33 +256,38 @@ export const profileCard = css`
       cursor: pointer;
     }
   }
-  >:nth-child(2) {
+  > : nth-child(2) {
     width: calc(100vw - 80px);
     display: flex;
     justify-content: space-between;
+  }
+  > : nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     & > div {
-      height: 60px;
-      width: calc(30vw - 21px);
+      margin: 16px 0 4px 0;
+    }
+    & > input {
+      margin: 0;
+    }
+    & > div:last-child {
+      margin: 0 0 0 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      & > img {
-        height: 20px;
-        margin: 0 0 4px 0;
+      & > input:first-child {
+        border-radius: 8px 8px 0 0;
       }
-      & > div {
-        font-size: 12px;
+      & > input {
+        border-radius: 0;
       }
-      &:not(:last-child) {
-        background-color: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(24px);
-        color: #3478F6;
+      & > input:last-child {
+        border-radius: 0 0 8px 8px;
       }
-      &:last-child {
-        background-color: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(24px);
-        color: #EB5545;
-      }
+    }
+    input {
+      width: calc(100vw - 96px);
     }
   }
 `
@@ -277,13 +296,112 @@ export const ticker = css`
   width: calc(100vw - 32px);
   height: 38px;
   position: fixed;
-  bottom: 16px;
+  top: 64px;
   left: 16px;
   right: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(24px);
   border-radius: 8px;
+  color: #FFFFFF;
+  > img {
+    margin: 0 8px 0 0;
+  }
+`
+
+export const deleteConfirmation = css`
+  width: calc(100vw - 80px);
+  display: flex;
+  justify-content: space-between;
+  & > div {
+    height: 60px;
+    width: calc(50vw - 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > img {
+      height: 20px;
+      margin: 0 0 4px 0;
+    }
+    & > div {
+      font-size: 12px;
+    }
+    &:last-child {
+      background-color: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(24px);
+      color: #3478F6;
+    }
+    &:first-child {
+      background-color: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(24px);
+      color: #EB5545;
+    }
+  }
+`
+
+export const editConfirmation = css`
+  width: calc(100vw - 80px);
+  display: flex;
+  justify-content: space-between;
+  & > div {
+    height: 60px;
+    width: calc(50vw - 48px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(24px);
+    color: #3478F6;
+    & > img {
+      height: 20px;
+      margin: 0 0 4px 0;
+    }
+    & > div {
+      font-size: 12px;
+    }
+  }
+`
+
+export const mainInteraction = css`
+  & > div {
+    height: 60px;
+    width: calc(30vw - 21px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > img {
+      height: 20px;
+      margin: 0 0 4px 0;
+    }
+    & > div {
+      font-size: 12px;
+    }
+    &:nth-child(2) {
+      background-color: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(24px);
+      color: #3478F6;
+    }
+    &:last-child {
+      background-color: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(24px);
+      color: #EB5545;
+    }
+  }
+`
+
+export const modalBackground = css`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+`
+
+export const successTicker = css`
+  background-color: #66CB5B
+`
+
+export const errorTicker = css`
+  background-color: #E55343
 `

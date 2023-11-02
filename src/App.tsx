@@ -5,7 +5,7 @@ import {
   ApolloProvider
 } from '@apollo/client'
 import ContactList from './components/ContactList';
-import {heading, searchSection, listSection, addContact} from "./styles/style"
+import {heading, searchSection, listSection, addContact, modalBackground} from "./styles/style"
 import SearchBar from './components/SearchBar';
 import addContactPlus from "./assets/person.crop.circle.fill.badge.plus.svg"
 import AddContactForm from './components/AddContactForm';
@@ -39,13 +39,13 @@ const App: React.FC = () => {
     <ApolloProvider client={client}>
       <div>
         <div className={searchSection}>
-          <SearchBar />
+          <SearchBar showProfile={showProfile} />
         </div>
         <div className={listSection}>
           <div className={heading}>Favorites</div>
-          {/* <ContactList /> */}
+          <ContactList type="favorite" showProfile={showProfile} />
           <div className={heading}>Contacts</div>
-          <ContactList showProfile={showProfile}/>
+          <ContactList type="contact" showProfile={showProfile}/>
         </div>
         <div className={addContact} onClick={toggleForm}>
           <img src={addContactPlus} alt="" />
@@ -57,7 +57,10 @@ const App: React.FC = () => {
           {
             profile !== 0 && <ProfileCard closeProfile={hideProfile} profile={profile} />
           }
-          {/* <Ticker /> */}
+          {
+            (showForm || profile !== 0) && <div className={modalBackground}></div>
+          }
+          <Ticker type="success" />
         </div>
       </div>
     </ApolloProvider>

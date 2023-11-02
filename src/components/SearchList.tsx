@@ -15,12 +15,21 @@ interface Contact {
   id: number
 }
 
-const SearchList: React.FC<{search: string}> = ({search}) => {
+interface SearchListProps {
+  search: string;
+  showProfile: (data: number) => void;
+}
+
+const SearchList: React.FC<SearchListProps> = ({search, showProfile}) => {
   const {loading, data} = useQuery(GET_PHONE_LIST, {
     variables: {
       search: '%' + search + '%'
     }
   });
+
+  const handleShowProfile = (id: number) => {
+    showProfile(id);
+  }
 
   return (
     <>
@@ -34,7 +43,7 @@ const SearchList: React.FC<{search: string}> = ({search}) => {
                 </div>
               : data.phone.map((phone: Phone, index: number) => (
                   index < 4 &&
-                  <div key={index}>
+                  <div key={index} onClick={() => handleShowProfile(phone.contact.id)}>
                     <div>
                       <div>{phone.contact.first_name}</div>
                       <div>{phone.contact.last_name}</div>

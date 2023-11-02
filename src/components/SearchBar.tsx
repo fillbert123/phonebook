@@ -4,7 +4,11 @@ import magnifyingGlass from "../assets/magnifyingglass.svg"
 import xmark from "../assets/xmark.circle.fill.svg"
 import SearchList from "./SearchList";
 
-const SearchBar: React.FC = () => {
+interface SearchBarProps {
+  showProfile: (data: number) => void;
+}
+
+const SearchBar = ({showProfile}: SearchBarProps) => {
   const [search, setSearch] = useState('');
 
   const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +33,7 @@ const SearchBar: React.FC = () => {
           />
           <img src={xmark} alt="" onClick={emptySearch} />
         </div>
-        <SearchList search={search}/>
+        <SearchList search={search} showProfile={showProfile} />
       </div>
     </>
   )

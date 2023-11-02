@@ -27,15 +27,16 @@ const AddContactForm = ({hideForm}: AddContactFormProps) => {
         }
       })
       handleHideForm();
+      //show ticker
     }
     catch (error) {
       console.log(error);
+      //show ticker
     }
   }
 
   const handleAddField = () => {
     setPhoneNumber(phoneNumber.concat({ number: ''}));
-    console.log(phoneNumber);
   }
 
   return (
@@ -71,7 +72,6 @@ const AddContactForm = ({hideForm}: AddContactFormProps) => {
                 const newPhoneNumber = [...phoneNumber];
                 newPhoneNumber[index].number = event.target.value;
                 setPhoneNumber(newPhoneNumber);
-                console.log(newPhoneNumber, phoneNumber);
               }}
               placeholder={`Phone number ${index + 1}`}
             />

@@ -18,20 +18,32 @@ interface Phone {
 
 interface ContactListProps {
   showProfile: (data: number) => void;
+  type: string
 }
 
-const ContactList = ({showProfile}: ContactListProps) => {
+const ContactList = ({showProfile, type}: ContactListProps) => {
   const {loading, data} = useQuery(GET_CONTACT_LIST);
+
+  const favoriteList = localStorage.getItem('favorites');
+  const favoriteArray = (favoriteList == undefined) ? [] : favoriteList.split('#'); 
 
   return (
     <>
       {
         loading
         ? <LoadingScreen />
-        : data.contact.map((contact: Contact) => (
-            <div key={contact.id.toString()}>
-              <ContactCard contactInfo={contact} showProfile={showProfile} />
-            </div>
+        : (type === "contact")
+          ? data.contact.map((contact: Contact) => (
+            (favoriteArray.indexOf(contact.id.toString()) === -1) &&
+              <div key={contact.id.toString()}>
+                <ContactCard contactInfo={contact} showProfile={showProfile} />
+              </div>
+          ))
+          : data.contact.map((contact: Contact) => (
+            (favoriteArray.indexOf(contact.id.toString()) !== -1) &&
+              <div key={contact.id.toString()}>
+                <ContactCard contactInfo={contact} showProfile={showProfile} />
+              </div>
           ))
       }
     </>
