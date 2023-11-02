@@ -1,5 +1,5 @@
 import React from "react";
-import {contactCard} from "../styles/style"
+import {contactCard, contactName} from "../styles/style"
 import chevron from "../assets/chevron.right.svg"
 
 interface ContactCardProps {
@@ -25,7 +25,7 @@ const ContactCard: React.FC<ContactCardProps> = ({contactInfo, showProfile}) => 
   return (
     <div className={contactCard} onClick={handleShowProfile}>
       <div>
-        <div>
+        <div className={contactName}>
           <div>{contactInfo.first_name}</div>
           <div>{contactInfo.last_name}</div>
         </div>

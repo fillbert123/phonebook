@@ -32,22 +32,6 @@ export const GET_CONTACT_DETAIL = gql`
   }
 `
 
-// export const GET_PHONE_LIST = gql`
-//   query GetPhoneLIst(
-//     $where: phone_bool_exp
-//   ) {
-//     phone(
-//       where: $where
-//     ) {
-//       contact {
-//         last_name
-//         first_name
-//         id
-//       }
-//     }
-//   }
-// `
-
 export const GET_PHONE_LIST = gql`
   query GetPhoneLIst(
     $search: String

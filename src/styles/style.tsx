@@ -114,7 +114,6 @@ export const contactCard = css`
   border: solid #000000;
   border-width: 0.5px 0;
   & > div:first-child {
-    font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -122,10 +121,6 @@ export const contactCard = css`
     & > div {
       display: flex;
       flex-direction: row;
-      & > div:first-child {
-        font-weight: bold;
-        margin: 0 4px 0 0;
-      }
     }
     & > img {
       height: 12px
@@ -181,14 +176,31 @@ export const modalBottom = css`
 `
 
 export const addContactForm = css`
-  & > input {
+  & input {
     width: calc(100vw - 96px);
-    margin: 8px 0;
+    margin: 16px 0 0 0;
   }
   & > div:first-child {
-    margin: 0 0 16px 0;
+    margin: 0 0 8px 0;
     font-size: 28px;
     font-weight: bold;
+  }
+  & > div:nth-child(4) {
+    width: calc(100vw - 80px);
+    margin: 16px 0;
+    & > input:not(:first-child) {
+      margin: 0;
+      border-radius: 0;
+    }
+    & > input:first-child {
+      margin: 0;
+      border-radius: 8px 8px 0 0;
+    }
+    & > div {
+      background-color: #FFFFFF;
+      border-radius: 0;
+      border-radius: 0 0 8px 8px;
+    }
   }
   & > div:last-child {
     width: calc(100vw - 80px);
@@ -209,6 +221,69 @@ export const addContactForm = css`
   }
 `
 
-export const addProfileCard = css`
+export const contactName = css`
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  & > div:first-child {
+    font-weight: bold;
+    margin: 0 4px 0 0;
+  }
+`
 
+export const profileCard = css`
+  >:first-child {
+    width: calc(100vw - 80px);
+    margin: 0 0 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    >:last-child {
+      cursor: pointer;
+    }
+  }
+  >:nth-child(2) {
+    width: calc(100vw - 80px);
+    display: flex;
+    justify-content: space-between;
+    & > div {
+      height: 60px;
+      width: calc(30vw - 21px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & > img {
+        height: 20px;
+        margin: 0 0 4px 0;
+      }
+      & > div {
+        font-size: 12px;
+      }
+      &:not(:last-child) {
+        background-color: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(24px);
+        color: #3478F6;
+      }
+      &:last-child {
+        background-color: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(24px);
+        color: #EB5545;
+      }
+    }
+  }
+`
+
+export const ticker = css`
+  width: calc(100vw - 32px);
+  height: 38px;
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  border-radius: 8px;
 `
