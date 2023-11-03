@@ -91,9 +91,26 @@ const ProfileCard: React.FC<ProfileCardProps> = ({profile, closeProfile}) => {
         !loading && 
           <div className={[modalBottom, profileCard].join(' ')}>
             <div>
-              <div className={contactName}>
-                <div>{data.contact_by_pk.first_name}</div>
-                <div>{data.contact_by_pk.last_name}</div>
+              <div>
+                {
+                  showEditConfirmation && (
+                    <div>Editing</div>
+                  )
+                }
+                {
+                  showDeleteConfirmation && (
+                    <div>Delete</div>
+                  )
+                }
+                <div className={contactName}>
+                  <div>{data.contact_by_pk.first_name}</div>
+                  <div>{data.contact_by_pk.last_name}</div>
+                </div>
+                {
+                  showDeleteConfirmation && (
+                    <div>?</div>
+                  )
+                }
               </div>
               <div>
                 <img src={xmark} alt="" onClick={handleCloseProfile}/>

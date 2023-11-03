@@ -111,6 +111,7 @@ export const searchList = css`
 `
 
 export const contactCard = css`
+  width: calc(100vw - 24px);
   padding: 8px 4px;
   border: solid #000000;
   border-width: 0.5px 0;
@@ -252,6 +253,14 @@ export const profileCard = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    > : first-child {
+      display: flex;
+      flex-direction: row;
+      font-size: 20px;
+      > :first-child {
+        margin: 0 4px 0 0;
+      }
+    }
     >:last-child {
       cursor: pointer;
     }
@@ -404,4 +413,35 @@ export const successTicker = css`
 
 export const errorTicker = css`
   background-color: #E55343
+`
+
+export const pagination = css`
+  margin: 16px 0;
+  display: flex;
+  flex-direction: row;
+  > button {
+    margin: 0 4px;
+    padding: 0 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(24px);
+    > div {
+      min-width: 20px;
+      color: #000000;
+    }
+    > img {
+      width: 20px;
+      height: 16px;
+    }
+  }
+`
+
+export const currentPage = css`
+  font-weight: bold;
+  background-color: rgba(102, 203, 91, 0.5) !important;
+`
+
+export const contactList = css`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 `

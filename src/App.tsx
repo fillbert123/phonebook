@@ -60,7 +60,7 @@ const App: React.FC = () => {
           {
             (showForm || profile !== 0) && <div className={modalBackground}></div>
           }
-          <Ticker type="success" />
+          {/* <Ticker type="error" /> */}
         </div>
       </div>
     </ApolloProvider>
