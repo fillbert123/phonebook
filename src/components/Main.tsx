@@ -13,6 +13,11 @@ const Main = () => {
   const {loading, data, refetch} = useQuery(GET_CONTACT_LIST);
   const [showForm, setShowForm] = useState(false);
   const [profile, setProfile] = useState(0);
+  const [showTicker, setShowTicker] = useState(false);
+  const [tickerMessage, setTickerMessage] = useState({
+    type: '',
+    message: ''
+  });
 
   const toggleForm = () => {
     setProfile(0);
@@ -27,6 +32,18 @@ const Main = () => {
 
   const hideProfile = () => {
     setProfile(0);
+    refetch();
+  }
+
+  const toggleTicker = (type: string, message: string) => {
+    setTickerMessage({
+      type: type,
+      message: message
+    });
+    setShowTicker(true);
+    setTimeout(() => {
+      setShowTicker(false);
+    }, 3000)
   }
 
   return (
@@ -45,7 +62,7 @@ const Main = () => {
         </div>
         <div>
           {
-            showForm && <AddContactForm hideForm={toggleForm}/>
+            showForm && <AddContactForm hideForm={toggleForm} toggleTicker={toggleTicker}/>
           }
           {
             profile !== 0 && <ProfileCard closeProfile={hideProfile} profile={profile} />
@@ -53,7 +70,9 @@ const Main = () => {
           {
             (showForm || profile !== 0) && <div className={modalBackground}></div>
           }
-          {/* <Ticker type="error" /> */}
+          {
+            showTicker && <Ticker data={tickerMessage} />
+          }
         </div>
       </div>
   )
