@@ -66,6 +66,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({profile, closeProfile}) => {
       : currentArray.splice(profileIndex, 1);
     const newList = currentArray.join('#');
     localStorage.setItem('favorites', newList);
+    closeProfile();
   }
 
   const handleDeleteProfile = async () => {

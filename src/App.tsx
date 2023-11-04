@@ -4,14 +4,14 @@ import {
   InMemoryCache,
   ApolloProvider
 } from '@apollo/client'
-import ContactList from './components/ContactList';
-import {heading, searchSection, listSection, addContact, modalBackground} from "./styles/style"
-import SearchBar from './components/SearchBar';
-import addContactPlus from "./assets/person.crop.circle.fill.badge.plus.svg"
-import AddContactForm from './components/AddContactForm';
-import ProfileCard from './components/ProfileCard';
-import Ticker from './components/Ticker';
-import ContactGroup from './components/ContactGroup';
+// import {searchSection, listSection, addContact, modalBackground} from "./styles/style"
+// import SearchBar from './components/SearchBar';
+// import addContactPlus from "./assets/person.crop.circle.fill.badge.plus.svg"
+// import AddContactForm from './components/AddContactForm';
+// import ProfileCard from './components/ProfileCard';
+// import Ticker from './components/Ticker';
+// import ContactGroup from './components/ContactGroup';
+import Main from './components/Main';
 
 const client = new ApolloClient ({
   cache: new InMemoryCache,
@@ -19,26 +19,27 @@ const client = new ApolloClient ({
 })
 
 const App: React.FC = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [profile, setProfile] = useState(0);
+  // const [showForm, setShowForm] = useState(false);
+  // const [profile, setProfile] = useState(0);
 
-  const toggleForm = () => {
-    setProfile(0);
-    setShowForm(!showForm);
-  }
+  // const toggleForm = () => {
+  //   setProfile(0);
+  //   setShowForm(!showForm);
+  // }
 
-  const showProfile = (data: number) => {
-    setShowForm(false);
-    setProfile(data);
-  }
+  // const showProfile = (data: number) => {
+  //   setShowForm(false);
+  //   setProfile(data);
+  // }
 
-  const hideProfile = () => {
-    setProfile(0);
-  }
+  // const hideProfile = () => {
+  //   setProfile(0);
+  // }
 
   return (
     <ApolloProvider client={client}>
-      <div>
+      <Main />
+      {/* <div>
         <div className={searchSection}>
           <SearchBar showProfile={showProfile} />
         </div>
@@ -58,9 +59,9 @@ const App: React.FC = () => {
           {
             (showForm || profile !== 0) && <div className={modalBackground}></div>
           }
-          {/* <Ticker type="error" /> */}
+          <Ticker type="error" />
         </div>
-      </div>
+      </div> */}
     </ApolloProvider>
   );
 }

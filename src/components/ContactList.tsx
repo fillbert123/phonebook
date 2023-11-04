@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import {useQuery} from '@apollo/client'
-import {GET_CONTACT_LIST} from '../graphql/queries'
 import ContactCard from './ContactCard';
-import LoadingScreen from './LoadingScreen';
 import Pagination from './Pagination';
 import { contactList } from '../styles/style';
 

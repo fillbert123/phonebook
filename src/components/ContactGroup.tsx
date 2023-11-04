@@ -18,20 +18,22 @@ interface Phone {
 
 interface ContactGroupProps {
   showProfile: (data: number) => void;
+  data: Contact[];
+  loading: boolean;
 }
 
-const ContactGroup = ({showProfile}: ContactGroupProps) => {
-  const {loading, data, refetch} = useQuery(GET_CONTACT_LIST);
+const ContactGroup = ({showProfile, data, loading}: ContactGroupProps) => {
+  // const {loading, data, refetch} = useQuery(GET_CONTACT_LIST);
   const favoriteList = localStorage.getItem('favorites');
   const favoriteArray = (favoriteList == undefined) ? [] : favoriteList.split('#'); 
   const favoriteObject: Contact[] = [];
   const contactObject: Contact[] = [];
 
   !loading &&
-    data.contact.map((contact: Contact, index: number) => {
+    data.map((contact: Contact, index: number) => {
       (favoriteArray.indexOf(contact.id.toString()) === -1)
-        ? contactObject.push(data.contact[index])
-        : favoriteObject.push(data.contact[index])
+        ? contactObject.push(data[index])
+        : favoriteObject.push(data[index])
     })
 
   return (

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { addContactForm, userInput, actionButton, modalBottom } from "../styles/style";
 import { useMutation } from "@apollo/client";
 import {ACC_CONTACT_WITH_PHONES} from '../graphql/mutations'
@@ -19,7 +19,7 @@ const AddContactForm = ({hideForm}: AddContactFormProps) => {
 
   const handleAddContact = async () => {
     try {
-      const {data} = await addContact({
+      const {} = await addContact({
         variables: {
           first_name: firstName,
           last_name: lastName,
