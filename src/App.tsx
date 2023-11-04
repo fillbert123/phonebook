@@ -11,6 +11,7 @@ import addContactPlus from "./assets/person.crop.circle.fill.badge.plus.svg"
 import AddContactForm from './components/AddContactForm';
 import ProfileCard from './components/ProfileCard';
 import Ticker from './components/Ticker';
+import ContactGroup from './components/ContactGroup';
 
 const client = new ApolloClient ({
   cache: new InMemoryCache,
@@ -42,10 +43,7 @@ const App: React.FC = () => {
           <SearchBar showProfile={showProfile} />
         </div>
         <div className={listSection}>
-          <div className={heading}>Favorites</div>
-          <ContactList type="favorite" showProfile={showProfile} />
-          <div className={heading}>Contacts</div>
-          <ContactList type="contact" showProfile={showProfile}/>
+          <ContactGroup showProfile={showProfile}/>
         </div>
         <div className={addContact} onClick={toggleForm}>
           <img src={addContactPlus} alt="" />
