@@ -48,33 +48,33 @@ const Main = () => {
 
   return (
     <div>
-        <div className={searchSection}>
-          <SearchBar showProfile={showProfile} />
-        </div>
-        <div className={listSection}>
-          {
-            !loading &&
-              <ContactGroup data={data.contact} loading={loading} showProfile={showProfile}/>
-          }
-        </div>
-        <div className={addContact} onClick={toggleForm}>
-          <img src={addContactPlus} alt="" />
-        </div>
-        <div>
-          {
-            showForm && <AddContactForm hideForm={toggleForm} toggleTicker={toggleTicker}/>
-          }
-          {
-            profile !== 0 && <ProfileCard closeProfile={hideProfile} profile={profile} />
-          }
-          {
-            (showForm || profile !== 0) && <div className={modalBackground}></div>
-          }
-          {
-            showTicker && <Ticker data={tickerMessage} />
-          }
-        </div>
+      <div className={searchSection}>
+        <SearchBar showProfile={showProfile} />
       </div>
+      <div className={listSection}>
+        {
+          !loading &&
+            <ContactGroup data={data.contact} loading={loading} showProfile={showProfile}/>
+        }
+      </div>
+      <div className={addContact} onClick={toggleForm}>
+        <img src={addContactPlus} alt="" />
+      </div>
+      <div>
+        {
+          showForm && !loading && <AddContactForm hideForm={toggleForm} toggleTicker={toggleTicker} data={data.contact} />
+        }
+        {
+          profile !== 0 && <ProfileCard closeProfile={hideProfile} profile={profile} toggleTicker={toggleTicker} contact={data.contact}/>
+        }
+        {
+          (showForm || profile !== 0) && <div className={modalBackground}></div>
+        }
+        {
+          showTicker && <Ticker data={tickerMessage} />
+        }
+      </div>
+    </div>
   )
 }
 

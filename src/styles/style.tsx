@@ -1,10 +1,10 @@
 import {css} from '@emotion/css'
 
 export const searchSection = css`
+  z-index: 2;
   width: 100vw;
   padding: 8px 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(24px);
+  background-color: #3478F6;
   display: flex;
   justify-content: center;
   position: sticky;
@@ -27,8 +27,8 @@ export const addContact = css`
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(24px);
+  background-color: #3478F6;
+  cursor: pointer;
   > img {
     width: 42px;
   }
@@ -40,8 +40,9 @@ export const heading = css`
   font-weight: bold;
 `
 
-export const loadingScreen = css`
-  width: 100vw;
+export const emptyState = css`
+  height: 120px;
+  width: calc(100vw - 16px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,15 +57,15 @@ export const searchBar = css`
     flex-direction: row;
     align-items: center;
     & > input {
-      width: calc(100vw - 92px);
+      width: calc(100vw - 96px);
     }
     & > img {
       height: 20px;
       &:first-child {
-        margin: 0 8px 0 0;
+        margin: 0 12px 0 8px;
       }
       &:last-child {
-        margin: 0 0 0 8px;
+        margin: 0 8px 0 12px;
         cursor: pointer;
       }
     }
@@ -114,7 +115,7 @@ export const contactCard = css`
   width: calc(100vw - 24px);
   padding: 8px 4px;
   border: solid #000000;
-  border-width: 0.5px 0;
+  border-width: 0.5px 0 0 0;
   & > div:first-child {
     display: flex;
     flex-direction: row;
@@ -138,7 +139,7 @@ export const contactCard = css`
   }
 `
 
-export const userInput = css`
+export const searchInput = css`
   height: 38px;
   padding: 0 8px;
   font-size: 16px;
@@ -148,6 +149,72 @@ export const userInput = css`
   backdrop-filter: blur(24px);
   &:focus {
     outline: none;
+    color: #FFFFFF;
+  }
+  &:not(:focus) {
+    color: #D9E4FC;
+  }
+  &::placeholder {
+    color: #D9E4FC;
+  }
+`
+
+export const userInput = css`
+  height: 38px;
+  padding: 0 8px;
+  font-size: 16px;
+  border: 0 none;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  &:focus {
+    outline: 1px solid #3478F6;
+    color: #3478F6;
+  }
+  &:not(:focus) {
+    color: #000000;
+  }
+  &::placeholder {
+    color: #888888;
+  }
+  &:disabled {
+    color: #D9E4FC;
+  }
+`
+
+export const profileCardInput = css`
+  height: 38px;
+  padding: 0 8px;
+  font-size: 16px;
+  border: 0 none;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  &:focus {
+    outline: 1px solid #3478F6;
+    color: #3478F6;
+  }
+  &:not(:focus) {
+    color: #000000;
+  }
+  &::placeholder {
+    color: #888888;
+  }
+  &:disabled {
+    color: #D9E4FC;
+  }
+`
+
+export const profileCardShow = css`
+  height: 38px;
+  padding: 0 8px;
+  font-size: 16px;
+  border: 0 none;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  &:disabled {
+    color: #000000;
   }
 `
 
@@ -168,8 +235,8 @@ export const activeActionButton = css`
 `
 
 export const inactiveActionButton = css`
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(24px);
+  background-color: #D9E4FC;
+  border: 1px solid #3478F6;
   color: #3478F6;
 `
 
@@ -281,18 +348,22 @@ export const profileCard = css`
       margin: 0;
     }
     & > div:last-child {
+      border: 0 none;
+      border-radius: 8px;
       margin: 0 0 0 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       & > input:first-child {
-        border-radius: 8px 8px 0 0;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
       }
       & > input {
         border-radius: 0;
       }
       & > input:last-child {
-        border-radius: 0 0 8px 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
       }
     }
     input {
@@ -336,13 +407,13 @@ export const deleteConfirmation = css`
       font-size: 12px;
     }
     &:last-child {
-      background-color: rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(24px);
+      background-color: #D9E4FC;
+      border: 1px solid #3478F6;
       color: #3478F6;
     }
     &:first-child {
-      background-color: rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(24px);
+      background-color: #F8DCD9;
+      border: 1px solid #EB5545;
       color: #EB5545;
     }
   }
@@ -358,8 +429,8 @@ export const editConfirmation = css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(24px);
+    background-color: #D9E4FC;
+    border: 1px solid #3478F6;
     color: #3478F6;
     & > img {
       height: 20px;
@@ -386,13 +457,13 @@ export const mainInteraction = css`
       font-size: 12px;
     }
     &:nth-child(2) {
-      background-color: rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(24px);
+      background-color: #D9E4FC;
+      border: 1px solid #3478F6;
       color: #3478F6;
     }
     &:last-child {
-      background-color: rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(24px);
+      background-color: #F8DCD9;
+      border: 1px solid #EB5545;
       color: #EB5545;
     }
   }
@@ -408,11 +479,11 @@ export const modalBackground = css`
 `
 
 export const successTicker = css`
-  background-color: #66CB5B
+  background-color: #3478F6;
 `
 
 export const errorTicker = css`
-  background-color: #E55343
+  background-color: #E55343;
 `
 
 export const pagination = css`
@@ -437,7 +508,7 @@ export const pagination = css`
 
 export const currentPage = css`
   font-weight: bold;
-  background-color: rgba(102, 203, 91, 0.5) !important;
+  background-color: #D9E4FC !important;
 `
 
 export const contactList = css`

@@ -24,6 +24,7 @@ const ContactList = ({showProfile, data}: ContactListProps) => {
   const [current, setCurrent] = useState(1);
 
   const directTo = (data: number) => {
+    window.scrollTo(0, 0);
     setCurrent(data);
   }
 

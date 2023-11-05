@@ -11,7 +11,6 @@ interface ContactListProps {
 }
 
 const Ticker = ({data}: ContactListProps) => {
-  console.log(data);
   return (
     <>
       {

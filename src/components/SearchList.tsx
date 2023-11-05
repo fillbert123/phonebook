@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {useQuery} from '@apollo/client'
 import {GET_PHONE_LIST} from '../graphql/queries'
 import {searchList} from "../styles/style"
@@ -34,7 +34,7 @@ const SearchList: React.FC<SearchListProps> = ({search, showProfile}) => {
   return (
     <>
       {
-        !loading && search !== '' && 
+        !loading && search !== '' &&
           <div className={searchList}>
             {
               data.phone.length === 0

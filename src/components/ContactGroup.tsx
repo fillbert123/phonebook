@@ -3,6 +3,7 @@ import ContactList from "./ContactList";
 import { heading } from "../styles/style";
 import { useQuery } from "@apollo/client";
 import { GET_CONTACT_LIST } from "../graphql/queries";
+import EmptyState from "./EmptyState";
 
 interface Contact {
   id: number,
@@ -39,9 +40,17 @@ const ContactGroup = ({showProfile, data, loading}: ContactGroupProps) => {
   return (
     <>
       <div className={heading}>Favorites</div>
-      <ContactList data={favoriteObject} showProfile={showProfile} />
+      {
+        (favoriteObject.length === 0)
+          ? <EmptyState />
+          : <ContactList data={favoriteObject} showProfile={showProfile} />
+      }
       <div className={heading}>Contacts</div>
-      <ContactList data={contactObject} showProfile={showProfile}/>
+      {
+        (contactObject.length === 0)
+        ? <EmptyState />
+        : <ContactList data={contactObject} showProfile={showProfile}/>
+      }
     </>
   )
 }

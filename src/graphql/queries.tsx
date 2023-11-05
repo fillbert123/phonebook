@@ -33,7 +33,7 @@ export const GET_CONTACT_DETAIL = gql`
 `
 
 export const GET_PHONE_LIST = gql`
-  query GetPhoneLIst(
+  query GetPhoneList(
     $search: String
   ) {
     phone(
