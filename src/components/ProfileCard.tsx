@@ -119,6 +119,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({profile, closeProfile, toggleT
           id: profile
         }
       })
+      toggleTicker("success", `Contact was successfully deleted`);
       closeProfile();
     }
     catch (error) {
